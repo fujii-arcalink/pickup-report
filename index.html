@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>回収日報</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>回収日報</h1>
+
+<div class="card">
+
+<label>日付</label>
+<input type="date" id="date">
+
+<label>担当者</label>
+<select id="driver"></select>
+
+<label>出発距離</label>
+<input type="number" id="startOdo">
+
+<button onclick="lockBase()">基本情報確定</button>
+
+</div>
+
+<div class="card">
+
+<h2>回収先</h2>
+
+<button onclick="loadCustomers()">回収先更新</button>
+
+<div id="customerList"></div>
+
+</div>
+
+<div class="card">
+
+<h2>入力</h2>
+
+<label>得意先</label>
+<input id="customer" readonly>
+
+<label>到着</label>
+<input id="arriveAt" readonly>
+<button onclick="stamp('arriveAt')">到着</button>
+
+<label>出発</label>
+<input id="departAt" readonly>
+<button onclick="stamp('departAt')">出発</button>
+
+<label>ストレッチkg</label>
+<input id="kgStretch">
+
+<label>PPkg</label>
+<input id="kgPP">
+
+<label>備考</label>
+<textarea id="note"></textarea>
+
+<button onclick="save()">保存</button>
+
+</div>
+
+<div class="card">
+
+<h2>集計</h2>
+
+<div>ストレッチ：<span id="sumStretch">0</span></div>
+<div>PP：<span id="sumPP">0</span></div>
+<div>距離：<span id="distanceKm">0</span></div>
+
+<label>終了距離</label>
+<input id="endOdo">
+
+<label>コメント</label>
+<textarea id="dailyComment"></textarea>
+
+<button onclick="finalize()">本日の業務終了</button>
+
+</div>
+
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>
